@@ -5,7 +5,7 @@
   tasks:
   - name: invoke gather function
     include_role:
-      name: resource_manager
+      name: network.base.resource_manager
     vars:
       action: gather
       ansible_network_os: cisco.ios.ios
