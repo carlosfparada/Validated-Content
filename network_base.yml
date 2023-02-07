@@ -26,7 +26,7 @@
       name: network.base.resource_manager
     vars:
       action: persist
-      inventory_directory: ./inventory
+      inventory_directory: .
       ansible_network_os: cisco.ios.ios
       resources:
         - 'interfaces'
@@ -49,7 +49,7 @@
     include_role:
       name: network.base.resource_manager
     vars:
-      inventory_directory: ./inventory
+      inventory_directory: .
       ansible_network_os: cisco.ios.ios
       action: deploy
       state: merged
