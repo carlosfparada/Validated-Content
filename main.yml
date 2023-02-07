@@ -21,7 +21,7 @@
         - 'l2_interfaces'
         - 'l3_interfaces'
 
-  - name: invoke gather function
+  - name: invoke persist function
     include_role:
       name: network.base.resource_manager
     vars:
