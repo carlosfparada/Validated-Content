@@ -25,7 +25,7 @@
     include_role:
       name: network.base.resource_manager
     vars:
-      perform_task: persist
+      action: persist
       inventory_directory: ./inventory
       ansible_network_os: cisco.ios.ios
       resources:
@@ -39,7 +39,7 @@
     vars:
       ansible_network_os: cisco.ios.ios
       resource: interfaces
-      perform_task: configure
+      action: configure
       config:
         - name: "GigabitEthernet0/0"
           description: "Edited with Configure operation"
@@ -51,7 +51,7 @@
     vars:
       inventory_directory: ./inventory
       ansible_network_os: cisco.ios.ios
-      perform_task: deploy
+      action: deploy
       state: merged
       resources:
         - 'interfaces'
