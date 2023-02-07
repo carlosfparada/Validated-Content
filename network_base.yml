@@ -26,7 +26,7 @@
       name: network.base.resource_manager
     vars:
       action: persist
-      inventory_directory: ./inventory/inventory.yaml
+      inventory_directory: ./
       ansible_network_os: cisco.ios.ios
       resources:
         - 'interfaces'
