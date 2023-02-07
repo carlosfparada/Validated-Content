@@ -1,8 +1,15 @@
 ---
 
 - hosts: ios
-  gather_facts: false
+  gather_facts: no
   tasks:
+  - name: invoke list function
+    include_role:
+      name: resource_manager
+    vars:
+      ansible_network_os: cisco.ios.ios
+      action: list
+
   - name: invoke gather function
     include_role:
       name: network.base.resource_manager
@@ -13,3 +20,41 @@
         - 'interfaces'
         - 'l2_interfaces'
         - 'l3_interfaces'
+
+  - name: invoke gather function
+    include_role:
+      name: resource_manager
+    vars:
+      perform_task: persist
+      inventory_directory: ./inventory
+      ansible_network_os: cisco.ios.ios
+      resources:
+        - 'interfaces'
+        - 'l2_interfaces'
+        - 'l3_interfaces'
+
+  - name: invoke configure function
+    include_role:
+      name: resource_manager
+    vars:
+      ansible_network_os: cisco.ios.ios
+      resource: interfaces
+      perform_task: configure
+      config:
+        - name: "GigabitEthernet0/0"
+          description: "Edited with Configure operation"
+      state: merged
+
+  - name: invoke deploy function
+    include_role:
+      name: resource_manager
+    vars:
+      inventory_directory: ./inventory
+      ansible_network_os: cisco.ios.ios
+      perform_task: deploy
+      state: merged
+      resources:
+        - 'interfaces'
+        - '!l2_interfaces'
+        - '!l3_interfaces'
+        - '!all'
