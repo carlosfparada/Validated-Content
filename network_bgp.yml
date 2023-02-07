@@ -1,4 +1,15 @@
 
+- name: Gather Facts
+  hosts: ios
+  gather_facts: false
+  tasks:
+  - name: BGP Manager
+    ansible.builtin.include_role:
+      name: network.bgp.run
+    vars:
+      actions:
+        - name: gather
+        
 # - name: Perform health checks
 #   hosts: ios
 #   gather_facts: false
@@ -28,17 +39,6 @@
       actions:
         - name: persist
           inventory_directory: './inventory'
-
-- name: Gather Facts
-  hosts: ios
-  gather_facts: false
-  tasks:
-  - name: BGP Manager
-    ansible.builtin.include_role:
-      name: network.bgp.run
-    vars:
-      actions:
-        - name: gather
 
 - name: Deploy host vars facts
   hosts: ios
