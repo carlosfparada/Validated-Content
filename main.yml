@@ -23,7 +23,7 @@
 
   - name: invoke gather function
     include_role:
-      name: resource_manager
+      name: network.base.resource_manager
     vars:
       perform_task: persist
       inventory_directory: ./inventory
@@ -35,7 +35,7 @@
 
   - name: invoke configure function
     include_role:
-      name: resource_manager
+      name: network.base.resource_manager
     vars:
       ansible_network_os: cisco.ios.ios
       resource: interfaces
@@ -47,7 +47,7 @@
 
   - name: invoke deploy function
     include_role:
-      name: resource_manager
+      name: network.base.resource_manager
     vars:
       inventory_directory: ./inventory
       ansible_network_os: cisco.ios.ios
