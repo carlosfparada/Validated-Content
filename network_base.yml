@@ -41,7 +41,7 @@
       resource: interfaces
       action: configure
       config:
-        - name: "GigabitEthernet0/0"
+        - name: "GigabitEthernet0/1"
           description: "Edited with Configure operation"
       state: merged
 
