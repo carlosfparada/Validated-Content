@@ -5,7 +5,7 @@
   tasks:
   - name: invoke list function
     include_role:
-      name: resource_manager
+      name: network.base.resource_manager
     vars:
       ansible_network_os: cisco.ios.ios
       action: list
