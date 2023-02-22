@@ -29,17 +29,17 @@
 #               - name: min_neighbors_up
 #                 min_count: 1
 
-- name: Persist the facts into host vars
-  hosts: ios
-  gather_facts: false
-  tasks:
-  - name: BGP Manager
-    ansible.builtin.include_role:
-      name: network.bgp.run
-    vars:
-      actions:
-        - name: persist
-          inventory_directory: './inventory'
+# - name: Persist the facts into host vars
+#   hosts: ios
+#   gather_facts: false
+#   tasks:
+#   - name: BGP Manager
+#     ansible.builtin.include_role:
+#       name: network.bgp.run
+#     vars:
+#       actions:
+#         - name: persist
+#           inventory_directory: './inventory'
 
 - name: Deploy host vars facts
   hosts: ios
