@@ -10,20 +10,20 @@
       ansible_network_os: cisco.ios.ios
       action: list
 
-- hosts: ios
-  gather_facts: no
-  tasks:
-  - name: invoke persist function
-    include_role:
-      name: network.base.resource_manager
-    vars:
-      action: persist
-      #inventory_directory: ./inventory
-      ansible_network_os: cisco.ios.ios
-      resources:
-        - 'interfaces'
-        - 'l2_interfaces'
-        - 'l3_interfaces'
+# - hosts: ios
+#   gather_facts: no
+#   tasks:
+#   - name: invoke persist function
+#     include_role:
+#       name: network.base.resource_manager
+#     vars:
+#       action: persist
+#       #inventory_directory: ./inventory
+#       ansible_network_os: cisco.ios.ios
+#       resources:
+#         - 'interfaces'
+#         - 'l2_interfaces'
+#         - 'l3_interfaces'
 
   - name: invoke gather function
     include_role:
