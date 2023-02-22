@@ -3,6 +3,7 @@
 - hosts: ios
   gather_facts: no
   tasks:
+
   - name: invoke list function
     include_role:
       name: network.base.resource_manager
@@ -10,9 +11,12 @@
       ansible_network_os: cisco.ios.ios
       action: list
 
-- hosts: ios
-  gather_facts: no
-  tasks:
+  - name: Create a directory if it does not exist
+    ansible.builtin.file:
+      path: ./inventory
+      state: directory
+      mode: '0777'
+
   - name: invoke persist function
     include_role:
       name: network.base.resource_manager
@@ -25,9 +29,6 @@
         - 'l2_interfaces'
         - 'l3_interfaces'
 
-- hosts: ios
-  gather_facts: no
-  tasks:
   - name: invoke gather function
     include_role:
       name: network.base.resource_manager
@@ -39,9 +40,6 @@
         - 'l2_interfaces'
         - 'l3_interfaces'
 
-- hosts: ios
-  gather_facts: no
-  tasks:
   - name: invoke configure function
     include_role:
       name: network.base.resource_manager
@@ -54,9 +52,6 @@
           description: "Edited with Configure operation"
       state: merged
 
-- hosts: ios
-  gather_facts: no
-  tasks:
   - name: invoke deploy function
     include_role:
       name: network.base.resource_manager
