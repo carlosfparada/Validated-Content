@@ -11,18 +11,12 @@
       ansible_network_os: cisco.ios.ios
       action: list
 
-  - name: Create a directory if it does not exist
-    ansible.builtin.file:
-      path: ./inventory
-      state: directory
-      mode: '0777'
-
   - name: invoke persist function
     include_role:
       name: network.base.resource_manager
     vars:
       action: persist
-      inventory_directory: ./inventory
+      #inventory_directory: ./inventory
       ansible_network_os: cisco.ios.ios
       resources:
         - 'interfaces'
