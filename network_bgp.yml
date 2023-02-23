@@ -1,14 +1,14 @@
 
-# - name: Gather Facts
-#   hosts: ios
-#   gather_facts: false
-#   tasks:
-#   - name: BGP Manager
-#     ansible.builtin.include_role:
-#       name: network.bgp.run
-#     vars:
-#       actions:
-#         - name: gather
+- name: Gather Facts
+  hosts: ios
+  gather_facts: false
+  tasks:
+  - name: BGP Manager
+    ansible.builtin.include_role:
+      name: network.bgp.run
+    vars:
+      actions:
+        - name: gather
 
 - name: Perform health checks
   hosts: ios
