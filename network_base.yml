@@ -23,7 +23,6 @@
     vars:
       action: persist
       #inventory_directory: ./inventory
-      ansible_network_os: cisco.ios.ios
       resources:
         - 'interfaces'
         - 'l2_interfaces'
