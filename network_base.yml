@@ -5,6 +5,24 @@
   gather_facts: no
   tasks:
 
+  # - name: Create the file ./inventory.yml if it does not exist
+  #   ansible.builtin.file:
+  #     path: ./inventory.yaml
+  #     state: touch
+  #     mode: '0777'
+
+  - name: invoke persist function
+    include_role:
+      name: network.base.resource_manager
+    vars:
+      action: persist
+      inventory_directory: ./inventory
+      ansible_network_os: cisco.ios.ios
+      resources:
+        - 'interfaces'
+        - 'l2_interfaces'
+        - 'l3_interfaces'
+
   - name: invoke list function
     include_role:
       name: network.base.resource_manager
@@ -34,24 +52,6 @@
         - name: "Ethernet0/1"
       state: merged
       description: "Edited with Configure operation"
-
-  # - name: Create the file ./inventory.yml if it does not exist
-  #   ansible.builtin.file:
-  #     path: ./inventory.yaml
-  #     state: touch
-  #     mode: '0777'
-
-  - name: invoke persist function
-    include_role:
-      name: network.base.resource_manager
-    vars:
-      action: persist
-      inventory_directory: ./inventory
-      ansible_network_os: cisco.ios.ios
-      resources:
-        - 'interfaces'
-        - 'l2_interfaces'
-        - 'l3_interfaces'
 
   - name: invoke deploy function
     include_role:
