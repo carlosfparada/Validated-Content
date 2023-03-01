@@ -11,3 +11,33 @@
     vars:
       ansible_network_os: cisco.ios.ios
       action: list
+
+  - name: invoke gather function
+    include_role:
+      name: network.base.resource_manager
+    vars:
+      action: gather
+      ansible_network_os: cisco.ios.ios
+      resources:
+        - 'interfaces'
+        - 'l2_interfaces'
+        - 'l3_interfaces'
+
+  - name: invoke configure function
+    include_role:
+      name: network.base.resource_manager
+    vars:
+      ansible_network_os: cisco.ios.ios
+      resource: interfaces
+      action: configure
+      config:
+        - name: "Ethernet0/1"
+      state: merged
+          description: "Edited with Configure operation"
+
+  # - name: Create the file ./inventory.yml if it does not exist
+  #   ansible.builtin.file:
+  #     path: ./inventory.yaml
+  #     state: touch
+  #     mode: '0777'
+
