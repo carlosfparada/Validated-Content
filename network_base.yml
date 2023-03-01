@@ -11,13 +11,6 @@
       ansible_network_os: cisco.ios.ios
       action: list
 
-  
-  # - name: Create the file ./inventory.yml if it does not exist
-  #   ansible.builtin.file:
-  #     path: ./inventory.yaml
-  #     state: touch
-  #     mode: '0777'
-
   - name: invoke gather function
     include_role:
       name: network.base.resource_manager
@@ -41,6 +34,14 @@
           description: "Edited with Configure operation"
       state: merged
 
+  
+  # - name: Create the file ./inventory.yml if it does not exist
+  #   ansible.builtin.file:
+  #     path: ./inventory.yaml
+  #     state: touch
+  #     mode: '0777'
+
+
   - name: invoke persist function
     include_role:
       name: network.base.resource_manager
@@ -51,7 +52,7 @@
         - 'interfaces'
         - 'l2_interfaces'
         - 'l3_interfaces'
-        
+
   - name: invoke deploy function
     include_role:
       name: network.base.resource_manager
