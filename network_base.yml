@@ -1,9 +1,10 @@
 ---
 
-- hosts: ios
+- name: network.base validated content
+  hosts: ios
   gather_facts: no
   tasks:
-        
+      
   - name: invoke list function
     include_role:
       name: network.base.resource_manager

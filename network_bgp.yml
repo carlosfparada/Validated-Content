@@ -1,5 +1,5 @@
 
-- name: Gather Facts
+- name: network.bgp validated content
   hosts: ios
   gather_facts: false
   tasks:
