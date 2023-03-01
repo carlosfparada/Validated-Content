@@ -24,7 +24,7 @@
       name: network.base.resource_manager
     vars:
       action: persist
-      #inventory_directory: ./inventory
+      inventory_directory: ./inventory
       resources:
         - 'interfaces'
         - 'l2_interfaces'
