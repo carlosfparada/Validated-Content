@@ -18,18 +18,6 @@
   #     state: touch
   #     mode: '0777'
 
-
-  - name: invoke persist function
-    include_role:
-      name: network.base.resource_manager
-    vars:
-      action: persist
-      inventory_directory: ./inventory
-      resources:
-        - 'interfaces'
-        - 'l2_interfaces'
-        - 'l3_interfaces'
-
   - name: invoke gather function
     include_role:
       name: network.base.resource_manager
@@ -53,6 +41,17 @@
           description: "Edited with Configure operation"
       state: merged
 
+  - name: invoke persist function
+    include_role:
+      name: network.base.resource_manager
+    vars:
+      action: persist
+      inventory_directory: ./inventory
+      resources:
+        - 'interfaces'
+        - 'l2_interfaces'
+        - 'l3_interfaces'
+        
   - name: invoke deploy function
     include_role:
       name: network.base.resource_manager
